@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>find the longest word in strings array</title>
+    <script>
+        var stringsArray=["aaaaaaaaaaaaaaa","abc","assfffgg","gggfff","ttttttttt","erefhhhhj8998"];
+        var result=findlongestWord(stringsArray);
+        alert("Longest word is: "+result);
+        function findlongestWord(strings){ //strings is an array
+            var longest=strings[0];
+            for(i=0;i<strings.length;i++){
+                    if(longest.length<strings[i].length){
+                        longest=strings[i];
+                    }
+            }
+            return longest;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

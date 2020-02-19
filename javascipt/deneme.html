@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script type="text/javascript">
+        window.addEventListener('load', eventWindowLoaded, false);
+        function eventWindowLoaded() {
+        canvasApp();
+        }
+        function canvasApp(){
+        var theCanvas = document.getElementById('my_first_canvas');
+        var my_canvas = theCanvas.getContext('2d');
+        my_canvas.strokeRect(0,0,200,225)
+        // to start, draw a border around the canvas
+        //draw face
+        my_canvas.beginPath();
+        my_canvas.arc(100, 100, 75, (Math.PI/180)*0, (Math.PI/180)*360, false);
+        // circle dimensions
+        my_canvas.strokeStyle = "black"; // circle outline is black
+        my_canvas.lineWidth = 3; // outline is three pixels wide
+        my_canvas.fillStyle = "yellow"; // fill circle with yellow
+        my_canvas.stroke(); // draw circle
+        my_canvas.fill(); // fill in circle
+       
+        my_canvas.closePath();
+        // now, draw left eye
+        my_canvas.fillStyle = "black"; // switch to black for the fill
+        my_canvas.beginPath();
+        my_canvas.arc(65, 70, 10, (Math.PI/180)*0, (Math.PI/180)*360, false);
+        // circle dimensions
+        my_canvas.stroke(); // draw circle
+        my_canvas.fill(); // fill in circle
+        my_canvas.closePath();
+        // now, draw right eye
+        my_canvas.beginPath();
+        my_canvas.arc(135, 70, 10, (Math.PI/180)*0, (Math.PI/180)*360, false);
+        // circle dimensions
+        my_canvas.stroke(); // draw circle
+        my_canvas.fill(); // fill in circle
+        my_canvas.closePath();
+        // draw smile
+        my_canvas.lineWidth = 6; // switch to six pixels wide for outline
+        my_canvas.beginPath();
+        my_canvas.arc(99, 120, 35, (Math.PI/180)*0, (Math.PI/180)*-180, false);
+        // semicircle dimensions
+        my_canvas.stroke();
+        my_canvas.closePath();
+        // Smiley Speaks!
+        my_canvas.fillStyle = "black"; // switch to black for text fill
+        my_canvas.font = '20px _sans'; // use 20 pixel sans serif font
+        my_canvas.fillText ("Hello Canvas!", 45, 200); // write text
+        }
+        </script>
+</head>
+<body>
+
+    <form action="/client.php" method="POST" enctype="multipart/form-data">
+        <label>Send a photo to be used as your online icon
+        <em>(optional)</em><br>
+        <input type="file" name="photo" size="28"><label>
+        
+    <p>Education Completed:<input type="text" list="edulevel">
+        <datalist id="edulevel">
+            <option value="High School"/>
+            <option value="Bachelors Degree"/>
+            <option value="Master Degree"/>
+            <option value="PhD"/>
+        </datalist>
+    </p>
+    <input type="time"><br>
+    <input type="date" value="2020-02-12"><br>
+    <input type="datetime-local"><br>
+    <input type="month"><br>
+    <input type="week"><br>
+    <input type=""><br>
+    <input type="number" min="1" max="10" ><br>
+
+    <input type="range" min="0" max="100" id="rangee"><br>
+    <input type="color"><br>
+    <canvas width="600" height="400" id="my_first_canvas">
+Your browser does not support HTML5 canvas. Try using Chrome,
+Firefox, Safari or Internet Explorer 9.
+</canvas>
+</form>
+</body>
+</html>
